@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function BlogBody() {
-  const [name, setName] = useState('');
+  const [body, setName] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,7 +12,7 @@ function BlogBody() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name }),
+        body: JSON.stringify({ body }),
       });
       if (response.ok) {
         alert('User saved successfully!');
@@ -27,8 +27,8 @@ function BlogBody() {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        Body:
+        <input type="text" value={body} onChange={(e) => setName(e.target.value)} />
       </label>
       <button type="submit">Submit</button>
     </form>
