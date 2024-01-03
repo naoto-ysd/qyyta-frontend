@@ -7,7 +7,7 @@ function BlogBody() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/blog_posts', {
+      const response = await fetch('http://localhost:3001/api/blog_posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
