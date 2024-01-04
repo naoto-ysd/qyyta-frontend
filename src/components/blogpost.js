@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-function BlogBody() {
+function BlogPost() {
   const [body, setName] = useState('');
 
   const handleSubmit = async (event) => {
@@ -27,7 +26,7 @@ function BlogBody() {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Body:
+        post:
         <input type="text" value={body} onChange={(e) => setName(e.target.value)} />
       </label>
       <button type="submit">Submit</button>
@@ -35,4 +34,4 @@ function BlogBody() {
   );
 }
 
-export default BlogBody;
+export default BlogPost;

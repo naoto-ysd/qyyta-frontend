@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import BlogBody from './components/blogbody';
+import BlogPost from './components/blogpost';
+import BlogSearch from './components/blogsearch';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <BlogBody />
+        <BlogPost />
+        <BlogSearch />
         <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>
