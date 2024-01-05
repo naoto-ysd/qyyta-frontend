@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-function BlogPost() {
+function ArticlePost() {
   const [body, setName] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/api/blog_posts', {
+      const response = await fetch('http://localhost:3001//api/v1/articles', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,4 +34,4 @@ function BlogPost() {
   );
 }
 
-export default BlogPost;
+export default ArticlePost;

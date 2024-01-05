@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function BlogSearch() {
+function ArticleSearch() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
   const searchDatabase = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/search', { params: { q: query }});
+      const response = await axios.get(`http://localhost:3001/api/v1/articles/${query}`);
       setResults(response.data);
     } catch (error) {
       console.error('Error during API request', error);
@@ -16,6 +16,7 @@ function BlogSearch() {
 
   return (
     <div>
+      Get:
       <input
         type="text"
         value={query}
@@ -26,11 +27,11 @@ function BlogSearch() {
 
       <ul>
         {results.map((item, index) => (
-          <li key={index}>{item.name} {}</li>
+          <li key={index}>{item.title} - {item.body}</li>
         ))}
       </ul>
     </div>
   );
 }
 
-export default BlogSearch;
+export default ArticleSearch;
