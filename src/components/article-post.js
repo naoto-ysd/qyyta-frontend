@@ -1,36 +1,38 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function ArticlePost() {
-  const [body, setName] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [responseData, setResponseData] = useState(null);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:3001//api/v1/articles', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ body }),
+      const response = await axios.post('http://localhost:3001/api/v1/articles', {
+        title: 'hoge',
+        body: inputValue
       });
-      if (response.ok) {
-        alert('User saved successfully!');
-      } else {
-        alert('Failed to save user.');
-      }
+
+      setResponseData(response.data);
+      console.log('Success:', response.data);
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        post:
-        <input type="text" value={body} onChange={(e) => setName(e.target.value)} />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleSubmit}>Submit</button>
+      {responseData && <div>{JSON.stringify(responseData)}</div>}
+    </div>
   );
 }
 

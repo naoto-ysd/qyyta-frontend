@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function ArticleSearch() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [result, setResults] = useState([]);
 
   const searchDatabase = async () => {
     try {
@@ -26,9 +26,7 @@ function ArticleSearch() {
       <button onClick={searchDatabase}>Search</button>
 
       <ul>
-        {results.map((item, index) => (
-          <li key={index}>{item.title} - {item.body}</li>
-        ))}
+        {result.title} {result.body}
       </ul>
     </div>
   );
