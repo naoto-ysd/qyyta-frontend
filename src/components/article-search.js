@@ -5,7 +5,7 @@ function ArticleSearch() {
   const [query, setQuery] = useState('');
   const [result, setResults] = useState([]);
 
-  const searchDatabase = async () => {
+  const searchArticle = async () => {
     try {
       const response = await axios.get(`http://localhost:3001/api/v1/articles/${query}`);
       setResults(response.data);
@@ -23,7 +23,7 @@ function ArticleSearch() {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search..."
       />
-      <button onClick={searchDatabase}>Search</button>
+      <button onClick={searchArticle}>Search</button>
 
       <ul>
         {result.title} {result.body}
