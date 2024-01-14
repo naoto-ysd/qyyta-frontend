@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function UserSignUp() {
+function UserLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignUp = async () => {
+  const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/auth', {
+      const response = await axios.post('http://localhost:3001/api/v1/auth/login', {
         username,
         password
       });
@@ -31,9 +31,9 @@ function UserSignUp() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSignUp}>Sign Up</button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 }
 
-export default UserSignUp;
+export default UserLogin;

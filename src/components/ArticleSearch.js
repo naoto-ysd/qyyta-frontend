@@ -16,7 +16,7 @@ function ArticleSearch() {
 
   return (
     <div>
-      Get:
+      Get::
       <input
         type="text"
         value={query}
