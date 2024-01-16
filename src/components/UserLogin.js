@@ -11,7 +11,7 @@ function UserLogin() {
         username,
         password
       });
-      console.log(response.data); // Handle the response as needed
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }

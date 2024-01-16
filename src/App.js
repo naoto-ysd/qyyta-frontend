@@ -1,21 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import ArticlePost from './components/ArticlePost';
-import ArticleSearch from './components/ArticleSearch';
-import ArticleEdit from './components/ArticleEdit';
-import UserSignUp from './components/UserSignUp';
+import { useState } from 'react';
 import UserLogin from './components/UserLogin';
-
+import UserSignUp from './components/UserSignUp';
+import Home from './components/Home';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
-        <ArticlePost />
-        <ArticleSearch />
+        {isLoggedIn ? <Home /> : <UserLogin onLoginSuccess={() => setIsLoggedIn(true)} />}
         <UserSignUp />
-        <ArticleEdit />
-        <UserLogin />
       </header>
     </div>
   );
