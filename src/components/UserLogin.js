@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function UserLogin() {
+function UserLogin({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,6 +12,9 @@ function UserLogin() {
         password
       });
       console.log(response.data);
+      if(response.data.success){
+        onLoginSuccess();
+      }
     } catch (error) {
       console.error(error);
     }
