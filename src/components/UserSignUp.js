@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function UserSignUp() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignUp = async () => {
     try {
       const response = await axios.post('http://localhost:3001/api/v1/auth', {
-        username,
-        password
+        email: email,
+        password: password,
+        password_confirmation: password
       });
-      console.log(response.data); // Handle the response as needed
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -21,9 +22,9 @@ function UserSignUp() {
     <div>
       <input
         type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        placeholder="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"
