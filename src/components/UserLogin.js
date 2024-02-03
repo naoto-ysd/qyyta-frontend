@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function UserLogin({ onLoginSuccess }) {
-  const [username, setUsername] = useState('');
+  const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/auth/login', {
-        username,
-        password
+      const response = await axios.post('http://localhost:3001/api/v1/auth/sign_in', {
+        email,
+        password,
+        confirm_success_url: 'http://localhost:3000/'
       });
       console.log(response.data);
       if(response.data.success){
@@ -24,8 +25,8 @@ function UserLogin({ onLoginSuccess }) {
     <div>
       <input
         type="text"
-        placeholder="Username"
-        value={username}
+        placeholder="email"
+        value={email}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input

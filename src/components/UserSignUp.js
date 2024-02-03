@@ -8,9 +8,8 @@ function UserSignUp() {
   const handleSignUp = async () => {
     try {
       const response = await axios.post('http://localhost:3001/api/v1/auth', {
-        email: email,
-        password: password,
-        password_confirmation: password
+        email,
+        password
       });
       console.log(response.data);
     } catch (error) {
