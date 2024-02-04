@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
@@ -18,12 +17,10 @@ function App() {
         </header>
       </div>
       <div>
-        <Router>
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path="/about" element={<About />}>test</Route>
+          {/* <Route path="/" element={<Home />} /> */}
+        </Routes>
       </div>
     </Router>
   );
