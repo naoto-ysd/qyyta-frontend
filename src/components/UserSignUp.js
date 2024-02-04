@@ -9,7 +9,9 @@ function UserSignUp() {
     try {
       const response = await axios.post('http://localhost:3001/api/v1/auth', {
         email,
-        password
+        password,
+        password_confirmation: password,
+        confirm_success_url: 'http://localhost:3000/'
       });
       console.log(response.data);
     } catch (error) {

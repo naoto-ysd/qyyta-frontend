@@ -12,8 +12,8 @@ function UserLogin({ onLoginSuccess }) {
         password,
         confirm_success_url: 'http://localhost:3000/'
       });
-      console.log(response.data);
-      if(response.data.success){
+      if (response.status === 200) {
+        console.log('test');
         onLoginSuccess();
       }
     } catch (error) {
