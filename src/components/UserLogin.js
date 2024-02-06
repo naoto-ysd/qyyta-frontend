@@ -13,7 +13,9 @@ function UserLogin({ onLoginSuccess }) {
         confirm_success_url: 'http://localhost:3000/'
       });
       if (response.status === 200) {
-        console.log('test');
+        console.log(response);
+        // トークンをローカルストレージに保存
+        localStorage.setItem('authToken', response.headers.token);
         onLoginSuccess();
       }
     } catch (error) {
