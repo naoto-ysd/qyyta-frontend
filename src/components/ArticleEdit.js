@@ -12,7 +12,7 @@ function ArticleEdit() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.put('http://localhost:3001/api/v1/articles/1', {
+      const response = await axios.put(`${process.env.REACT_APP_API_BASE_URL}/v1/articles/1`, {
         title: 'hoge',
         body: inputValue
       });

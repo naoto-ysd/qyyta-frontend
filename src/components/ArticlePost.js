@@ -11,7 +11,7 @@ function ArticlePost() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/articles', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/v1/articles`, {
         title: 'hoge',
         body: inputValue
       });

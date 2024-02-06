@@ -7,7 +7,7 @@ function UserLogin({ onLoginSuccess }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/auth/sign_in', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/v1/auth/sign_in`, {
         email,
         password,
         confirm_success_url: 'http://localhost:3000/'

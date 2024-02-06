@@ -7,7 +7,7 @@ function ArticleSearch() {
 
   const searchArticle = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/v1/articles/${query}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/v1/articles/${query}`);
       setResults(response.data);
     } catch (error) {
       console.error('Error during API request', error);
