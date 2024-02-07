@@ -3,6 +3,7 @@ import UserLogin from './components/UserLogin';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
 import Button from './components/Button';
+import Form from './components/Form';
 import './App.css';
 
 function App() {
