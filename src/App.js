@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UserLogin from './components/UserLogin';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
+import Button from './components/Button';
 import './App.css';
 
 function App() {
@@ -11,15 +12,22 @@ function App() {
     const token = localStorage.getItem('authToken');
     if (token) {
       setIsLoggedIn(true);
-      // 必要に応じて、トークンの検証やユーザー情報の取得を行う
     }
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    setIsLoggedIn(false);
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         {isLoggedIn ? (
-          <Home />
+          <>
+            <Home />
+            <button onClick={handleLogout}>Logout</button>
+          </>
         ) : (
           <>
             <UserLogin onLoginSuccess={() => setIsLoggedIn(true)} />
