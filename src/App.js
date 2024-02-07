@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UserLogin from './components/UserLogin';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
