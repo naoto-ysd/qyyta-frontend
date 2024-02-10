@@ -6,19 +6,19 @@
 
 /* ヘッダーのスタイル */
 .App-header {
-  background-color: #c0d3e7;
+  background-color: #f5f5f5;
   padding: 100px;
 }
 
 /* フォームコンテナ */
-.form-container {
+/* .form-container {
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
   background-color: #f7f7f7;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* 入力フィールドのスタイル */
 input[type="text"],
@@ -35,7 +35,7 @@ button {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  background-color: #007bff;
+  background-color: #75b8ff;
   color: white;
   border: none;
   border-radius: 4px;

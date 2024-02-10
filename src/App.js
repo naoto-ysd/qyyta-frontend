@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
 import UserLogin from './components/UserLogin';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
-import Button from './components/Button';
-import Form from './components/Form';
+// import Button from './components/Button';
+// import Form from './components/Form';
 import './App.css';
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
         ) : (
           <>
             <UserLogin onLoginSuccess={() => setIsLoggedIn(true)} />
-            <UserSignUp />
+            <Routes><Route path="/signup" element={ <UserSignUp /> } /></Routes>
           </>
         )}
       </header>
