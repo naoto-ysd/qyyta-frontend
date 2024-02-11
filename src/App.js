@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import UserLogin from './components/UserLogin';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
-// import Button from './components/Button';
-// import Form from './components/Form';
 import './App.css';
 
 function App() {
@@ -31,10 +29,11 @@ function App() {
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
-          <>
-            <UserLogin onLoginSuccess={() => setIsLoggedIn(true)} />
-            <Routes><Route path="/signup" element={ <UserSignUp /> } /></Routes>
-          </>
+          <Routes>
+            <Route path="/" element={<UserLogin onLoginSuccess={() => setIsLoggedIn(true)} />} />
+            <Route path="/signup" element={<UserSignUp />} />
+            <Link to="/signup">Sign Up</Link>
+          </Routes>
         )}
       </header>
     </div>
