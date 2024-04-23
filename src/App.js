@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
@@ -32,9 +32,9 @@ function App() {
           <Routes>
             <Route path="/" element={<UserLogin onLoginSuccess={() => setIsLoggedIn(true)} />} />
             <Route path="/signup" element={<UserSignUp />} />
-            <Link to="/signup">Sign Up</Link>
           </Routes>
         )}
+        {!isLoggedIn && <Link to="/signup">Sign Up</Link>}
       </header>
     </div>
   );
